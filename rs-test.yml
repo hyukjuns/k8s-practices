@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+    - key: app
+      operator: Exists
+  template:
+    metadata:
+      name: rs-pod-test
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: c1t1d0s7/myweb
+        name: rs-pod1
+        ports:
+        - containerPort: 8080
+          protocol: TCP
