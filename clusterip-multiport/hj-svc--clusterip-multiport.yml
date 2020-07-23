@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hj-clusterip-multiport
+  labels:
+    app: dev
+spec:
+  selector:
+    app: ret
+  type: ClusterIP
+  ports:
+  - port: 6000
+    name: myweb
+    protocol: TCP
+    targetPort: 8080
+    protocol: TCP
+  - port: 7000
+    name: apache
+    protocol: TCP
+    targetPort: 80

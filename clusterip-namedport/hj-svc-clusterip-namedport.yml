@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hj-clusterip-namedport
+  labels:
+    app: dev
+spec:
+  selector:
+    app: ret
+  type: ClusterIP
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: hjport
+    protocol: TCP

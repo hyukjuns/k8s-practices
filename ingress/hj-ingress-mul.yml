@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ing-mul
+spec:
+  rules:
+  - host: hjwebapp.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: clusteripforing
+          servicePort: 80
+  - host: namwebapp.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: clusteripforing2
+          servicePort: 80

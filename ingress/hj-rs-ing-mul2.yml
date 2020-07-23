@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hj-rs-ing-mul2
+  labels:
+    hyuk: jun
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ing2
+  template:
+    metadata:
+      name: rs-rs-ing-mul2
+      labels:
+        app: ing2
+    spec:
+      containers:
+      - image: httpd:latest
+        name: rs-pod
+        ports:
+        - containerPort: 80
+          protocol: TCP

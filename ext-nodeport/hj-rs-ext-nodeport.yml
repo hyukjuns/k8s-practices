@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hj-rs-nodeport
+  labels:
+    exp: diff
+spec:
+  replicas: 3
+  selector: #It must match the pod template's labels.
+    matchLabels:
+      app: ext
+  template:
+    metadata:
+      name: rs-pod-nodeport
+      labels:
+        app: ext
+    spec:
+      containers:
+      - image: c1t1d0s7/myweb
+        name: rs-pod-ext-np
+        ports:
+        - containerPort: 8080
+          protocol: TCP

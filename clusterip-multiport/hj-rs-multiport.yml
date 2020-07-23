@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hj-rs-multiport
+  labels:
+    exp: diff
+spec:
+  replicas: 3
+  selector: #It must match the pod template's labels.
+    matchLabels:
+      app: ret
+  template:
+    metadata:
+      name: rs-pod-multiport
+      labels:
+        app: ret
+    spec:
+      containers:
+      - image: c1t1d0s7/myweb
+        name: rs-pod-m
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      - image: httpd
+        name: rs-pod-httpd
+        ports:
+        - containerPort: 80
+          protocol: TCP
