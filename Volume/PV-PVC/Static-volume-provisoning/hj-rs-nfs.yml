@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hj-rs-nfs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nfs
+  template:
+    metadata:
+      labels:
+        app: nfs
+    spec:
+      containers:
+        - name: nfs-pod
+          image: nginx
+          volumeMounts:
+            - name: nfs-share
+              mountPath: /usr/share/nginx/html
+          ports:
+            - containerPort: 80
+      volumes:
+       - name: nfs-share
+         persistentVolumeClaim:
+           claimName: hj-pvc-nfs
