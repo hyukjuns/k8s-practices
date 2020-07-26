@@ -1,0 +1,11 @@
+apiVersion: c1
+kind: Service
+metadata:
+  name: svc-nfs
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: nfs
