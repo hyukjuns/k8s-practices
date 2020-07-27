@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hj-nginx-rs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+      name: hj-nginx-pod
+    spec:
+      containers:
+        - name: hj-nginx-con
+          image: c1t1d0s7/myweb:customport
+          env:
+            - name: NODE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: nam-nginx-port
+                  key: nodeport
+          ports:
+            - name: hj-nginx-port
+              containerPort: 8080
+         
+    

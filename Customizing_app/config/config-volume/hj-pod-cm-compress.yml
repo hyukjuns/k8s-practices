@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hj-pod-cm-compress
+spec:
+  containers:
+    - image: nginx
+      name: hj-compress
+      volumeMounts:
+      - name: nginx-compress-config
+        mountPath: /etc/nginx/conf.d
+      ports:
+      - containerPort: 80
+  volumes:
+    - name: nginx-compress-config
+      configMap:
+        name: nginx-gzip-config

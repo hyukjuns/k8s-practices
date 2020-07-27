@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ing
+spec:
+  rules:
+    - host: apache.example.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: hj-svc-apache
+              servicePort: 80
+    - host: nginx.example.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: hj-svc-nginx
+              servicePort: 80

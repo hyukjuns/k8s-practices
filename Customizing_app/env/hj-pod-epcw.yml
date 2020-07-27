@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hj-pod-epcw
+spec:
+  containers:
+    - name: hj-pod
+      image: hyukjun/guro:envportcentweb
+      ports:
+        - containerPort: 80
+          protocol: TCP
+      env:
+        - name: WEBPORT
+          value: "8999"
+  

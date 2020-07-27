@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hj-config
+data:
+  nodeport: "8080"
+  message: "Hello world im configyaml"

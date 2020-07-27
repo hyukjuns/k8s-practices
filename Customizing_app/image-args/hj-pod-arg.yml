@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hj-pod-arg
+  labels:
+    app: arg
+spec:
+  containers:
+    - name: hj-con-arg
+      image: c1t1d0s7/myweb
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+      args: ["Customed hello world!"]

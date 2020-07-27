@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hj-apache-rs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: apache
+  template:
+    metadata:
+      labels:
+        app: apache
+      name: hj-apache-pod
+    spec:
+      containers:
+        - name: hj-apache-con
+          image: httpd:latest
+          env:
+            - name: WEBPORT
+              value:  "8500"
+          ports:
+            - name: hj-apache-port
+              containerPort: 8500
+          volumeMounts:
+            - name: nam-apache-configvolume
+              mountPath: /usr/local/apache2/conf/httpd.conf
+              subPath: httpd.conf
+            - name: nam-apache-htmlconfigvolume
+              mountPath: /usr/local/apache2/htdocs/index.html
+              subPath: index.html
+      volumes:
+        - name: nam-apache-configvolume
+          configMap:
+            name: nam-apache-conf
+        - name: nam-apache-htmlconfigvolume
+          configMap:
+            name: nam-apache-html
