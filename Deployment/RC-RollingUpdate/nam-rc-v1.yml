@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nam-rc-v1
+spec:
+    replicas: 3
+    selector:
+      app: web
+    template:
+      metadata:
+        labels:
+          app: web
+        name: nam-pod-v1
+      spec:
+        containers:
+          - name: nam-con-v1
+            image: c1t1d0s7/myweb:v1
+            ports:
+              - containerPort: 8080
+            

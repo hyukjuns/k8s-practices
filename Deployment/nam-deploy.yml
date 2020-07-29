@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nam-deployment
+  labels:
+    app: deploy
+  annotations:
+    kubernetes.io/change-cause: Hyuk JUn node app ver 3
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: deploy
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 2
+  minReadySeconds: 20
+  template:
+    metadata:
+      labels:
+        app: deploy
+    spec:
+      containers:
+      - name: mynam
+        image: c1t1d0s7/myweb:v3
+        ports:
+         - containerPort: 8080

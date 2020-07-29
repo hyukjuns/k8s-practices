@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nam-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: prac2
+  template:
+    metadata:
+      name: nam-rs-con
+      labels:
+        app: prac2
+    spec:
+      containers:
+        - name: nam-rs-con
+          image: httpd:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: nam-live-config
+              mountPath: /usr/local/apache2/htdocs/ready
+              subPath: ready
+          livenessProbe:
+            exec:
+              command: ['ls', '/usr/local/apache2/htdocs/ready']
+          readinessProbe:
+            httpGet:
+              port: 80
+              path: /
+      volumes:
+        - name: nam-live-config
+          configMap:
+            name: ready          

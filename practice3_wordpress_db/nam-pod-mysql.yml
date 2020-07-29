@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nam-pod-wp-mysql
+  labels:
+    app: db
+spec:
+  containers:
+    - name: nam-con-wp-mysql
+      image: mysql:5.7
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "1234"
+        - name: MYSQL_DATABASE
+          value: "wordpress"
+        - name: MYSQL_USER
+          value: "wp-admin"
+        - name: MYSQL_PASSWORD
+          value: "1234"
+      ports:
+        - containerPort: 3306
+      volumeMounts:
+        - name: db-vol
+          mountPath: /var/lib/mysql
+          subPath: mysql
+  volumes:
+    - name: db-vol
+      persistentVolumeClaim:
+        claimName: db-pvc

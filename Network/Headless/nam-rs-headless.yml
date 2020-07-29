@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nam-rs-headless
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: head
+  template:
+    metadata:
+      labels:
+        app: head
+    spec:
+      containers:
+        - name: nam-pod
+          image: c1t1d0s7/myweb:v1
+          ports:
+          - containerPort: 8080
+
+

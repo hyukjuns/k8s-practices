@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nam-rs-tls
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tls
+  template:
+    metadata:
+      name: nam-pod-tls
+      labels:
+        app: tls
+    spec:
+      containers:
+        - name: nam-con-tls
+          image: c1t1d0s7/myweb:v1
+          ports:
+            - containerPort: 8080
+          

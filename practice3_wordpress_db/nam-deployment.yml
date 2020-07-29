@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nam-deploy
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: wp
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 2
+  minReadySeconds: 20
+  template:
+    metadata:
+      name: nam-pod-wordpress
+      labels:
+        app: wp
+    spec:
+      containers:
+        - name: nam-con-wordpress
+          image: wordpress:latest
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: "mysql-0.nam-svc-headless"
+            - name: WORDPRESS_DB_USER
+              value: "wp-admin"
+            - name: WORDPRESS_DB_PASSWORD
+              value: "1234"
+            - name: WORDPRESS_DB_NAME
+              value: "wordpress"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: wp-vol
+              mountPath: /var/www/html
+      volumes:
+        - name: wp-vol
+          persistentVolumeClaim:
+            claimName: wp-pvc
