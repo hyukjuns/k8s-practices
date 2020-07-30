@@ -10,7 +10,7 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 2
+      maxUnavailable: 1
       maxSurge: 2
   minReadySeconds: 20
   template:
@@ -36,15 +36,22 @@ spec:
           volumeMounts:
             - name: wp-vol
               mountPath: /var/www/html
+            - name: ready-config
+              mountPath: /var/www/html/ok # 컨피그맵의 이름이 디렉토리로
+              subPath: ok # 디렉토리 서브패스
           livenessProbe:
             exec:
-              command: ['ls', '/var/www/html']
+              command: ['ls', '/var/www/html/ok']
           readinessProbe:
             httpGet:
               port: 80
               path: /
       volumes:
         - name: wp-vol
-          persistentVolumeClaim:
-            claimName: wp-pvc
+          emptyDir: {}
+          # persistentVolumeClaim:
+          #   claimName: wp-pvc
+        - name: ready-config
+          configMap:
+            name: ok
 
