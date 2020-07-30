@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nam-rs-aff-cache
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nam-rs-aff-cache
+      tier: cache
+  template:
+    metadata:
+      labels:
+        app: nam-rs-aff-cache
+        tier: cache
+    spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: tier
+                operator: In
+                values:
+                - cache
+            topologyKey: 'kubernetes.io/hostname'
+      containers:
+        - name: namapp
+          image: c1t1d0s7/myweb

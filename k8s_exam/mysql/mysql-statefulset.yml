@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: mysql
   serviceName: mysql
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
@@ -65,8 +65,14 @@ spec:
       - name: mysql
         image: mysql:5.7
         env:
-        - name: MYSQL_ALLOW_EMPTY_PASSWORD
-          value: "1"
+          - name: MYSQL_ALLOW_EMPTY_PASSWORD
+            value: "1"
+          - name: MYSQL_DATABASE
+            value: "wordpress"
+          - name: MYSQL_USER
+            value: "wp-admin"
+          - name: MYSQL_PASSWORD
+            value: "1234"
         ports:
         - name: mysql
           containerPort: 3306
@@ -164,3 +170,4 @@ spec:
       resources:
         requests:
           storage: 10Gi
+      storageClassName: rook-ceph-block

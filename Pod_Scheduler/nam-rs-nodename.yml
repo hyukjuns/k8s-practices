@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nam-rs-nodenmae
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nam-rs-nodename
+  template:
+    metadata:
+      labels:
+        app: nam-rs-nodename
+    spec:
+      nodeName: node1 # focus
+      containers:
+        - name: nam
+          image: c1t1d0s7/myweb

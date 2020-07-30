@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nam-pod-lim
+spec:
+  containers:
+    - image: c1t1d0s7/myweb
+      name: nam
+      resources:
+        limits:
+          cpu: 0.5
+          memory: 20Mi

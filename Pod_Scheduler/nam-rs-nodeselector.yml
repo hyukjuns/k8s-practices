@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nam-rs-nodeselector
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nam-rs-ns
+  template:
+    metadata:
+      labels:
+        app: nam-rs-ns
+    spec:
+      nodeSelector:
+        gpu: midrange
+      containers:
+        - name: nam-con
+          image: c1t1d0s7/myweb
