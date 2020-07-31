@@ -6,13 +6,26 @@ spec:
   selector:
     matchLabels:
       app: mysql
+      tier: db # .spec.affinity 에 사용됨
   serviceName: mysql
   replicas: 2
   template:
     metadata:
       labels:
         app: mysql
+        tier: db # .spec.affinity 에 사용됨
     spec:
+      affinity:
+       # tier: db 인 파드와는 떨어져 있어라
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: tier
+                operator: In
+                values:
+                - db
+            topologyKey: "kubernetes.io/hostname"
       initContainers:
       - name: init-mysql
         image: mysql:5.7
@@ -64,14 +77,15 @@ spec:
       containers:
       - name: mysql
         image: mysql:5.7
+        # wordpress를 위한 데이터베이스 셋팅
         env:
-          - name: MYSQL_ALLOW_EMPTY_PASSWORD
+          - name: MYSQL_ALLOW_EMPTY_PASSWORD # 루트 비밀번호 무시 가능
             value: "1"
-          - name: MYSQL_DATABASE
+          - name: MYSQL_DATABASE # 데이터베이스 이름
             value: "wordpress"
-          - name: MYSQL_USER
+          - name: MYSQL_USER # 데이터베이스 사용자
             value: "wp-admin"
-          - name: MYSQL_PASSWORD
+          - name: MYSQL_PASSWORD # wp-admin 비밀번호
             value: "1234"
         ports:
         - name: mysql
@@ -86,6 +100,7 @@ spec:
           requests:
             cpu: 500m
             memory: 1Gi
+        # mysqladmin으로 핑 보내서 라이브 확인
         livenessProbe:
           exec:
             command: ["mysqladmin", "ping"]
@@ -155,7 +170,7 @@ spec:
         resources:
           requests:
             cpu: 100m
-            memory: 100Mi
+            memory: 250Mi
       volumes:
       - name: conf
         emptyDir: {}
@@ -170,4 +185,4 @@ spec:
       resources:
         requests:
           storage: 10Gi
-      storageClassName: rook-ceph-block
+      storageClassName: rook-ceph-block # 스토리지 클래스 block 사용

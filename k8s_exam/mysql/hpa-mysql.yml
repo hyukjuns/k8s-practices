@@ -7,6 +7,6 @@ spec:
     apiVersion: apps/v1
     kind: StatefulSet
     name: mysql
-  minReplicas: 1
+  minReplicas: 2
   maxReplicas: 7
-  targetCPUUtilizationPercentage: 70
+  targetCPUUtilizationPercentage: 90
