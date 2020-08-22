@@ -11,7 +11,8 @@
 - etc..
 
 ## SemiProject
-- Wordpress - DB 구축
-  Link: [wordpress-db][linkname]
+- Ingress with customed web services [ingress][linkname]
+- Wordpress - DB 구축[wordpress-db][linkname2]
 
-[linkname]: https://github.com/namhj94/k8s/tree/master/wordpress-db
+[linkname]: https://github.com/namhj94/k8s/tree/master/practice
+[linkname2]: https://github.com/namhj94/k8s/tree/master/wordpress-db
