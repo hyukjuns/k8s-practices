@@ -1,5 +1,5 @@
-# Kubernetes Practices and SemiProjects
-## Resources
+# Kubernetes Practices
+## Resources that had created...
 - Pod
 - ReplicaController
 - ReplicaSet
@@ -13,7 +13,7 @@
 - configMap
 - etc..
 
-## SemiProject
+## Configuration Practices
 - Ingress with customed web services [ingress][linkname]
 - Wordpress - DB 구축 [wordpress-db][linkname2]
 
