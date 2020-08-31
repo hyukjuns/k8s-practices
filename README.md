@@ -14,8 +14,5 @@
 - etc..
 
 ## Configuration Practices
-- Ingress with customed web services [ingress][linkname]
-- Wordpress - DB 구축 [wordpress-db][linkname2]
-
-[linkname]: https://github.com/namhj94/k8s/tree/master/practice
-[linkname2]: https://github.com/namhj94/k8s/tree/master/wordpress-db
+- Ingress with customed web services [ingress](Configuration-ingress)
+- Wordpress - DB 구축 [wordpress-db](Configuration-wp_db)
