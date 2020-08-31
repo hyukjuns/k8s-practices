@@ -15,4 +15,4 @@
 
 ## Configuration Practices
 - Ingress with customed web services [ingress](Configuration-ingress)
-- Wordpress - DB 구축 [wordpress-db](Configuration-wp_db)
+- Wordpress - DB 구축 [wordpress-db](Configuration-wp-db)
