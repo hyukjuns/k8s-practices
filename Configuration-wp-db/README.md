@@ -16,9 +16,8 @@ web은 stateless 이고, 뷸륨에 있는 파일은 읽기 작업만 수행하�
 
 ### Architecture
 
-![Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/prac2.svg](Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/prac2.svg)
+![images/prac2.svg](images/prac2.svg)
 
-[prac2.svg.drawio](Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/prac2.svg.drawio)
 
 ### Handbook
 
@@ -333,12 +332,7 @@ web은 stateless 이고, 뷸륨에 있는 파일은 읽기 작업만 수행하�
     ```
 
 ### Result
-
-![Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/Untitled.png](Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/Untitled.png)
-
-![Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/Untitled%201.png](Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/Untitled%201.png)
-
-![Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/Untitled%202.png](Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/Untitled%202.png)
-
-![Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/Untitled%203.png](Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/Untitled%203.png)
-
+![images/Untitled.png](images/res0.png)
+![images/Untitled%201.png](images/res1.png)
+![images/Untitled%202.png](images/res2.png)
+![images/Untitled%203.png](images/res3.png)
