@@ -1,14 +1,12 @@
 # Kubernetes Usages
 
-## Architeucture Scenarios
-- Ingress with customed web services
-[ingress](Configuration-ingress)
-- Wordpress - DB 구축
-[wordpress-db](Configuration-wp-db)
-- Kubernetes Native
-[Kubernetes-Native](https://github.com/namhj94/Kubernetes-Native-Wordpress-Application-Configuration)  
+# Architeucture Scenarios
+- [Ingress with customed web services](Configuration-ingress)
+- [Wordpress-MySQL][Configuration-wp-db)
+- [Kubernetes-Native](https://github.com/namhj94/Kubernetes-Native-Wordpress-Application-Configuration)  
+- [HA Cluster](https://github.com/namhj94/Create-High-Availability-Clusters-with-kubeadm)
 
-## Resources
+# Resources
 - Pod
 - ReplicaController
 - ReplicaSet
@@ -21,7 +19,3 @@
 - HPA
 - configMap
 - etc..
-
-## Architeucture Scenarios
-- Ingress with customed web services [ingress](Configuration-ingress)
-- Wordpress - DB 구축 [wordpress-db](Configuration-wp-db)
