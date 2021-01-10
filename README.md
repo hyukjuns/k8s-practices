@@ -1,5 +1,5 @@
 # Kubernetes Practices
-## Resources that had created...
+## Resources
 - Pod
 - ReplicaController
 - ReplicaSet
