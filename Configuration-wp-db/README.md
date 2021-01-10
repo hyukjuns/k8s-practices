@@ -8,13 +8,12 @@
 - CPU: 5core
 - DB: MySQL
 ### Config
-<p>
-**wordpress는 deployment를 쓰고 db는 statefulset을 쓰는 이유**
-<br>
+<p>wordpress는 deployment를 쓰고 db는 statefulset을 쓰는 이유
+
 web은 stateless 이고, 뷸륨에 있는 파일은 읽기 작업만 수행하면되므로(콘텐츠 파일이기때문) 파드간에 볼륨을 공유해도 된다. 
-<br>
-반면 DB는 statefull을 유지해야하고, 볼륨에 새로운 데이터를 쓰기 작업을 해야하므로 볼륨을 공유하게되면 쓰기 작업시 충돌이 일어나게 된다. 이를 방지하려면 각각의 파드는 각자의 볼륨을 가져야하고, 마스터의 볼륨을 슬레이브의 볼륨에 동기화 해주는 방식으로 동작한다.
-</p>
+
+반면 DB는 statefull을 유지해야하고, 볼륨에 새로운 데이터를 쓰기 작업을 해야하므로 볼륨을 공유하게되면 쓰기 작업시 충돌이 일어나게 된다. 이를 방지하려면 각각의 파드는 각자의 볼륨을 가져야하고, 마스터의 볼륨을 슬레이브의 볼륨에 동기화 해주는 방식으로 동작한다.</p>
+
 ### Architecture
 
 ![Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/prac2.svg](Practice2%20Wordpress-DB%20Connect%202f2679430ce4428bb49649c21847e7b1/prac2.svg)
