@@ -7,7 +7,7 @@
 - Memory: 16G
 - CPU: 5core
 - DB: MySQL
-### Config
+### Check Point
 <p>wordpress는 deployment를 쓰고 db는 statefulset을 쓰는 이유
 
 web은 stateless 이고, 뷸륨에 있는 파일은 읽기 작업만 수행하면되므로(콘텐츠 파일이기때문) 파드간에 볼륨을 공유해도 된다. 

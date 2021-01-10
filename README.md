@@ -1,9 +1,8 @@
-# Kubernetes Usages
-
+# Go to Kubernetes Native
 # Architeucture Scenarios
 - [Ingress with customed web services](Configuration-ingress)
 - [Wordpress-MySQL](Configuration-wp-db)
-- [Kubernetes-Native](https://github.com/namhj94/Kubernetes-Native-Wordpress-Application-Configuration)  
+- [Kubernetes-Native-Webapp](https://github.com/namhj94/Kubernetes-Native-Wordpress-Application-Configuration)  
 - [HA Cluster](https://github.com/namhj94/Create-High-Availability-Clusters-with-kubeadm)
 
 # Resources
