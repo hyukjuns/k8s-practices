@@ -1,15 +1,16 @@
 # Go to Kubernetes Native
 # Architeuctures
-- [Kubernetes-Native-Webapp](https://github.com/namhj94/Kubernetes-Native-Wordpress-Application-Configuration)
+### Kubernetes-Native-Webapp
+Repo: [Kubernetes-Native-Webapp](https://github.com/namhj94/Kubernetes-Native-Wordpress-Application-Configuration)
     ![image/wp-db-architecture](images/architecture.svg)  
-
-- [HA Cluster](https://github.com/namhj94/Create-High-Availability-Clusters-with-kubeadm)
+### HA Cluster
+Repo: [HA Cluster](https://github.com/namhj94/Create-High-Availability-Clusters-with-kubeadm)
     ![image/ha-topology](images/topology.png)
-
-- [Ingress with customed web services](Configuration-ingress)
+### Ingress with customed web services
+Repo: [Ingress with customed web services](Configuration-ingress)
     ![image/ingress](Configuration-ingress/image/ingress.png)
-
-- [Wordpress-MySQL](Configuration-wp-db)
+### Wordpress-MySQL
+Repo: [Wordpress-MySQL](Configuration-wp-db)
     ![images/prac2.svg](Configuration-wp-db/images/prac2.svg)
 
 # Resources
