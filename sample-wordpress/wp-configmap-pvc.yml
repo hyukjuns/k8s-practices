@@ -1,0 +1,21 @@
+# CONFIGMAP
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wpconfigmap
+  namespace: production
+data:
+  isok: "wpisready"
+---
+# PVC
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wp-pvc
+  namespace: production
+spec:
+  accessModes: ["ReadWriteMany"]
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: azurefile
