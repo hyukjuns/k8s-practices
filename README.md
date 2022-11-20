@@ -1,3 +1,11 @@
 # Kubernetes Workspace
-Kubernetes Object를 만들면서 테스트하고 YAML Manifest를 기록합니다.<br>
-Kubernetes Native 아키텍쳐를 만들고 기록합니다.
+Make k8s Objects and Application
+
+### Environments
+- Native (On-premise)
+- Azure (AKS)
+
+### Contents
+- k8s Objects Samples
+- k8s Objects in AKS
+- k8s Applications
