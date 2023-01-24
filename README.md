@@ -1,11 +1,12 @@
 # Kubernetes Workspace
-Make k8s Objects and Application
+k8s objects for practice
 
 ### Environments
-- Native (On-premise)
-- Azure (AKS)
+- Docker Desktop K8s Cluster
+- Minikube Cluster
+- AKS Cluster
 
 ### Contents
-- k8s Objects Samples
-- k8s Objects in AKS
-- k8s Applications
+- k8s Objects, application Samples
+- AKS Featrues
+- Util objects for test
