@@ -8,9 +8,5 @@ spec:
   containers:
   - image: ubuntu:focal
     name: ubuntu
-    command:
-    - "/bin/sh"
-    args:
-    - "-c"
-    - "while true; do echo hello; sleep 10;done"
+    command: ["sleep","360"]
 status: {}
