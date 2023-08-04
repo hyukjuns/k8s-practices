@@ -29,8 +29,10 @@ controller:
 helm search repo ingress-nginx --versions
 helm install ingress-nginx ingress-nginx/ingress-nginx --version 4.5.2 -n ingress-nginx -f user-values.yaml
 ```
-[versions][img/chart_versions.png]
-[appversions](ingress-nginx-app-versions.png)
+![versions](img/chart_versions.png)
+
+![appversions](img/ingress-nginx-app-versions.png)
+
 3. Install with user-values.yaml
 ```
 helm install ingress-nginx ingress-nginx/ingress-nginx -n ingress-nginx -f user-values.yaml
