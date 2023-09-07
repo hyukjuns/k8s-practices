@@ -1,0 +1,29 @@
+## Provide a k8s version to auto dashboard import script example: kubeTargetVersionOverride: 1.16.6
+kubeTargetVersionOverride: "1.26.6"
+
+## Labels to apply to all resources
+commonLabels:
+  mgmt: monitoring
+
+## Timezone for the default dashboards and password
+grafana:
+  defaultDashboardsTimezone: kst
+  adminPassword: admin
+
+# prometheus volumes
+prometheus:
+  prometheusSpec:
+    ## How long to retain metrics
+    retention:  14d
+    ## Prometheus StorageSpec for persistent data
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: azuredisk-ssdlrs
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
+
+## Available options
+## nodeselector, replicas

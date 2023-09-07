@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: httpd
+  name: httpd
+  namespace: myweb
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: httpd
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 30%
+      maxUnavailable: 30%
+  minReadySeconds: 20 # 파드의 최소 준비 시간
+  template:
+    metadata:
+      labels:
+        app: httpd
+    spec:
+      containers:
+      - image: httpd
+        name: httpd
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "0.5m"
+            memory: "512Mi"
+          limits:
+            cpu: "1m"
+            memory: "1024Mi"
+        livenessProbe:
+          exec:
+            command: ['cat', '/var/www/html/isok']
+        readinessProbe:
+          httpGet:
+            port: 80
+            path: /
+          timeoutSeconds: 60
+        volumeMounts:
+          - name: ready-config
+            mountPath: /var/www/html/isok
+            subPath: isok
+      volumes:
+        - name: ready-config
+          configMap:
+            name: wpconfigmap
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wpconfigmap
+  namespace: myweb
+data:
+  isok: "ready"

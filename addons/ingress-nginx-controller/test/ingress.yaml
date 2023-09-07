@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: httpd
+  namespace: myweb
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: ing.testcloud.site
+    http:
+      paths:
+      - backend:
+          service:
+            name: httpd
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpd
+  namespace: myweb
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+  selector:
+    app: httpd

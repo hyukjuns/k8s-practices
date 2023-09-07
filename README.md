@@ -1,3 +1,2 @@
 # Kubernetes Objects Samples
-- Practice AKS Features
-- Test K8s objects
+Practice AKS Features, K8s Objects, K8s Addons
