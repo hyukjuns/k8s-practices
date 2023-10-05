@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: temp
+  labels:
+    app: temp
+spec:
+  containers:
+  - name: temp-centos
+    image: centos:7
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep 30; done;" ]

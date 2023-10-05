@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-nginx
+  labels:
+    app: front
+spec:
+  containers:
+    - image: nginx
+      name: test-nginx
+      ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-nginx-svc
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-ipv4: 10.224.100.100
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: front
